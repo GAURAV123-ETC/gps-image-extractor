@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>GPS Image Extractor</title>
+    <link rel="stylesheet" href="/static/css/styles.css" />
+</head>
+<body>
+    <div class="container">
+        <header class="hero">
+            <h1>GPS Image Extractor</h1>
+            <p>Scan a folder, extract EXIF GPS coordinates, export CSV, and optionally generate an interactive map.</p>
+        </header>
+
+        <section class="card">
+            <div class="form-grid">
+                <div class="field full">
+                    <label for="folderPath">Folder Path</label>
+                    <div style="display: flex; gap: 8px;">
+                        <input id="folderPath" type="text" placeholder="Example: C:\\Users\\Prakash\\Pictures" />
+                        <button id="browseBtn" type="button" class="secondary">Browse...</button>
+                    </div>
+                    <small>Enter the full local folder path containing your images.</small>
+                </div>
+
+                <div class="field checkbox">
+                    <label>
+                        <input id="reverseGeocode" type="checkbox" />
+                        Reverse geocode coordinates to place names
+                    </label>
+                </div>
+
+                <div class="field checkbox">
+                    <label>
+                        <input id="createMap" type="checkbox" checked />
+                        Create Folium HTML map
+                    </label>
+                </div>
+            </div>
+
+            <div class="actions">
+                <button id="scanBtn">Scan Folder</button>
+                <button id="exportBtn" class="secondary">Export CSV</button>
+                <button id="exportExcelBtn" class="secondary">Export Excel</button>
+                <button id="clearBtn" class="ghost">Clear</button>
+            </div>
+            
+            <div id="dropZone" class="drop-zone">
+                <p>Drag & Drop Images Here</p>
+                <small>Or use the folder scan above</small>
+            </div>
+            <div id="previewGrid" class="preview-grid"></div>
+        </section>
+
+        <section class="card stats" id="stats" hidden>
+            <div>
+                <span class="label">Total Files</span>
+                <strong id="totalFiles">0</strong>
+            </div>
+            <div>
+                <span class="label">With GPS</span>
+                <strong id="withGps">0</strong>
+            </div>
+            <div>
+                <span class="label">Without GPS</span>
+                <strong id="withoutGps">0</strong>
+            </div>
+        </section>
+
+        <section class="card">
+            <div class="section-head">
+                <h2>Results</h2>
+                <span id="statusText">Ready.</span>
+            </div>
+            <div class="table-wrap">
+                <table id="resultsTable">
+                    <thead>
+                        <tr>
+                            <th>Image</th>
+                            <th>Latitude</th>
+                            <th>Longitude</th>
+                            <th>Timestamp</th>
+                            <th>Status</th>
+                            <th>Location</th>
+                            <th>Error</th>
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+            </div>
+        </section>
+
+        <section class="card">
+            <div class="section-head">
+                <h2>Logs</h2>
+            </div>
+            <pre id="logBox"></pre>
+        </section>
+    </div>
+
+    <script src="/static/js/app.js"></script>
+</body>
+</html>
