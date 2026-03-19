@@ -28,7 +28,8 @@ def scan_folder(payload: ScanRequest):
         create_map=payload.create_map,
     )
 
-    records = df.to_dict(orient="records") if not df.empty else []
+    # Safely convert NaN and Inf to None for JSON serialization
+    records = df.astype(object).where(pd.notnull(df), None).to_dict(orient="records") if not df.empty else []
     with_gps = sum(1 for row in records if row.get("latitude") is not None and row.get("longitude") is not None)
 
     return {
@@ -126,7 +127,8 @@ def scan_upload(
     df = pd.DataFrame(records)
     map_path = generate_map(df) if create_map and not df.empty else None
 
-    records_dict = df.to_dict(orient="records") if not df.empty else []
+    # Safely convert NaN and Inf to None for JSON serialization
+    records_dict = df.astype(object).where(pd.notnull(df), None).to_dict(orient="records") if not df.empty else []
     with_gps = sum(1 for row in records_dict if row.get("latitude") is not None and row.get("longitude") is not None)
 
     return {

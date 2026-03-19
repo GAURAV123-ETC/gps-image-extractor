@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>GPS Image Extractor</title>
     <link rel="stylesheet" href="/static/css/styles.css" />
 </head>
+
 <body>
     <div class="container">
         <header class="hero">
@@ -18,7 +20,7 @@
                 <div class="field full">
                     <label for="folderPath">Folder Path</label>
                     <div style="display: flex; gap: 8px;">
-                        <input id="folderPath" type="text" placeholder="Example: C:\\Users\\Prakash\\Pictures" />
+                        <input id="folderPath" type="text" placeholder="Example: C:\\Users\\Gaurav\\Pictures" />
                         <button id="browseBtn" type="button" class="secondary">Browse...</button>
                     </div>
                     <small>Enter the full local folder path containing your images.</small>
@@ -45,7 +47,7 @@
                 <button id="exportExcelBtn" class="secondary">Export Excel</button>
                 <button id="clearBtn" class="ghost">Clear</button>
             </div>
-            
+
             <div id="dropZone" class="drop-zone">
                 <p>Drag & Drop Images Here</p>
                 <small>Or use the folder scan above</small>
@@ -101,4 +103,5 @@
 
     <script src="/static/js/app.js"></script>
 </body>
+
 </html>

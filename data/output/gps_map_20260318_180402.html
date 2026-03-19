@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_5f13bb9fff454350faf2c880d7d52589 {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+
+            <style>html, body {
+                width: 100%;
+                height: 100%;
+                margin: 0;
+                padding: 0;
+            }
+            </style>
+
+            <style>#map {
+                position:absolute;
+                top:0;
+                bottom:0;
+                right:0;
+                left:0;
+                }
+            </style>
+
+            <script>
+                L_NO_TOUCH = false;
+                L_DISABLE_3D = false;
+            </script>
+
+        
+</head>
+<body>
+    
+    
+            <div class="folium-map" id="map_5f13bb9fff454350faf2c880d7d52589" ></div>
+        
+</body>
+<script>
+    
+    
+            var map_5f13bb9fff454350faf2c880d7d52589 = L.map(
+                "map_5f13bb9fff454350faf2c880d7d52589",
+                {
+                    center: [19.7026, 23.929407075],
+                    crs: L.CRS.EPSG3857,
+                    ...{
+  "zoom": 5,
+  "zoomControl": true,
+  "preferCanvas": false,
+}
+
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_070094754cb11539121e9cb70618fa1d = L.tileLayer(
+                "https://tile.openstreetmap.org/{z}/{x}/{y}.png",
+                {
+  "minZoom": 0,
+  "maxZoom": 19,
+  "maxNativeZoom": 19,
+  "noWrap": false,
+  "attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors",
+  "subdomains": "abc",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 1,
+}
+
+            );
+        
+    
+            tile_layer_070094754cb11539121e9cb70618fa1d.addTo(map_5f13bb9fff454350faf2c880d7d52589);
+        
+    
+            var marker_664bd5a6f0769ed498bdb9751fa78d3a = L.marker(
+                [19.2026, 27.2186585],
+                {
+}
+            ).addTo(map_5f13bb9fff454350faf2c880d7d52589);
+        
+    
+        var popup_71446d6ee5e8e4d7871c6e3d71885458 = L.popup({
+  "maxWidth": 350,
+});
+
+        
+            
+                var html_cd2258e8411d75383c10bb99a57457a9 = $(`<div id="html_cd2258e8411d75383c10bb99a57457a9" style="width: 100.0%; height: 100.0%;"><b>Image:</b> PIC 1.jpg.jpeg<br><b>Latitude:</b> 19.2026<br><b>Longitude:</b> 27.2186585<br><b>Timestamp:</b> None<br><b>Location:</b> Mellit, شمال دارفور, السودان</div>`)[0];
+                popup_71446d6ee5e8e4d7871c6e3d71885458.setContent(html_cd2258e8411d75383c10bb99a57457a9);
+            
+        
+
+        marker_664bd5a6f0769ed498bdb9751fa78d3a.bindPopup(popup_71446d6ee5e8e4d7871c6e3d71885458)
+        ;
+
+        
+    
+    
+            marker_664bd5a6f0769ed498bdb9751fa78d3a.bindTooltip(
+                `<div>
+                     PIC 1.jpg.jpeg
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var marker_035544bd00231526f4ccf7f75f692a1a = L.marker(
+                [16.2026, 28.614651],
+                {
+}
+            ).addTo(map_5f13bb9fff454350faf2c880d7d52589);
+        
+    
+        var popup_2ecde5516371c74cf8fcb94fe48a283f = L.popup({
+  "maxWidth": 350,
+});
+
+        
+            
+                var html_e466da8b08eb67b24327d042acc6ba82 = $(`<div id="html_e466da8b08eb67b24327d042acc6ba82" style="width: 100.0%; height: 100.0%;"><b>Image:</b> PIC 2.jpg.jpeg<br><b>Latitude:</b> 16.2026<br><b>Longitude:</b> 28.614651<br><b>Timestamp:</b> None<br><b>Location:</b> Sowdari, شمال كردفان, السودان</div>`)[0];
+                popup_2ecde5516371c74cf8fcb94fe48a283f.setContent(html_e466da8b08eb67b24327d042acc6ba82);
+            
+        
+
+        marker_035544bd00231526f4ccf7f75f692a1a.bindPopup(popup_2ecde5516371c74cf8fcb94fe48a283f)
+        ;
+
+        
+    
+    
+            marker_035544bd00231526f4ccf7f75f692a1a.bindTooltip(
+                `<div>
+                     PIC 2.jpg.jpeg
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var marker_591833d056091cf5fb70996c5bdbd1a9 = L.marker(
+                [20.2026, 19.9393184],
+                {
+}
+            ).addTo(map_5f13bb9fff454350faf2c880d7d52589);
+        
+    
+        var popup_129e0a4680929781117a765f4ca8d6ff = L.popup({
+  "maxWidth": 350,
+});
+
+        
+            
+                var html_0a95609aa2aa5c717ec81d8d16cc9f24 = $(`<div id="html_0a95609aa2aa5c717ec81d8d16cc9f24" style="width: 100.0%; height: 100.0%;"><b>Image:</b> PIC 3.jpg.jpeg<br><b>Latitude:</b> 20.2026<br><b>Longitude:</b> 19.9393184<br><b>Timestamp:</b> None<br><b>Location:</b> Tibesti تيبستي, Tchad تشاد</div>`)[0];
+                popup_129e0a4680929781117a765f4ca8d6ff.setContent(html_0a95609aa2aa5c717ec81d8d16cc9f24);
+            
+        
+
+        marker_591833d056091cf5fb70996c5bdbd1a9.bindPopup(popup_129e0a4680929781117a765f4ca8d6ff)
+        ;
+
+        
+    
+    
+            marker_591833d056091cf5fb70996c5bdbd1a9.bindTooltip(
+                `<div>
+                     PIC 3.jpg.jpeg
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var marker_19fb52db6cfb89e29afac6fc49ff6110 = L.marker(
+                [23.2026, 19.9450004],
+                {
+}
+            ).addTo(map_5f13bb9fff454350faf2c880d7d52589);
+        
+    
+        var popup_b97133911df60e1c7442505c5c4429cd = L.popup({
+  "maxWidth": 350,
+});
+
+        
+            
+                var html_0cffb6eb7026c4e10b38c34eb15a06af = $(`<div id="html_0cffb6eb7026c4e10b38c34eb15a06af" style="width: 100.0%; height: 100.0%;"><b>Image:</b> PIC 4.jpg.jpeg<br><b>Latitude:</b> 23.2026<br><b>Longitude:</b> 19.9450004<br><b>Timestamp:</b> None<br><b>Location:</b> الكفرة, ليبيا</div>`)[0];
+                popup_b97133911df60e1c7442505c5c4429cd.setContent(html_0cffb6eb7026c4e10b38c34eb15a06af);
+            
+        
+
+        marker_19fb52db6cfb89e29afac6fc49ff6110.bindPopup(popup_b97133911df60e1c7442505c5c4429cd)
+        ;
+
+        
+    
+    
+            marker_19fb52db6cfb89e29afac6fc49ff6110.bindTooltip(
+                `<div>
+                     PIC 4.jpg.jpeg
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+</script>
+</html>

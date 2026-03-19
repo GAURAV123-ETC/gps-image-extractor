@@ -42,7 +42,7 @@ function statusClass(status) {
 
 function addRow(row) {
   const tr = document.createElement("tr");
-  
+
   // Format location with Google Maps link if coords exist
   let locationHtml = row.location_name ?? "";
   if (row.latitude && row.longitude) {
@@ -217,3 +217,68 @@ exportExcelBtn.addEventListener("click", async () => {
 });
 
 clearBtn.addEventListener("click", clearResults);
+
+// --- Drag & Drop ---
+['dragenter', 'dragover', 'dragleave', 'drop'].forEach(evt => {
+  dropZone.addEventListener(evt, e => { e.preventDefault(); e.stopPropagation(); }, false);
+});
+['dragenter', 'dragover'].forEach(evt => {
+  dropZone.addEventListener(evt, () => dropZone.classList.add('dragover'), false);
+});
+['dragleave', 'drop'].forEach(evt => {
+  dropZone.addEventListener(evt, () => dropZone.classList.remove('dragover'), false);
+});
+
+dropZone.addEventListener('drop', async (e) => {
+  const files = e.dataTransfer.files;
+  if (files && files.length > 0) {
+    clearResults();
+    await handleFileUpload(files);
+  }
+}, false);
+
+async function handleFileUpload(files) {
+  const formData = new FormData();
+  formData.append("reverse_geocode_enabled", reverseGeocodeEl.checked);
+  formData.append("create_map", createMapEl.checked);
+
+  previewGrid.innerHTML = "";
+  for (let i = 0; i < files.length; i++) {
+    const file = files[i];
+    formData.append("files", file);
+    const imgUrl = URL.createObjectURL(file);
+    const imgEl = document.createElement("img");
+    imgEl.src = imgUrl;
+    imgEl.className = "preview-item";
+    imgEl.title = file.name;
+    imgEl.onload = () => URL.revokeObjectURL(imgUrl);
+    previewGrid.appendChild(imgEl);
+  }
+
+  try {
+    statusText.textContent = "Uploading & scanning...";
+    log(`Uploading ${files.length} file(s) for GPS scan.`);
+
+    const response = await fetch("/api/scan-upload", { method: "POST", body: formData });
+    if (!response.ok) {
+      const errorText = await response.text();
+      throw new Error(errorText || `Upload failed with status ${response.status}`);
+    }
+
+    const data = await response.json();
+    stats.hidden = false;
+    totalFiles.textContent = String(data.total_files ?? 0);
+    withGps.textContent = String(data.with_gps ?? 0);
+    withoutGps.textContent = String(data.without_gps ?? 0);
+
+    (data.results || []).forEach(addRow);
+    if (data.map_file) log(`Map generated: ${data.map_file}`);
+    log(`Scan completed. Total: ${data.total_files}, With GPS: ${data.with_gps}, Without GPS: ${data.without_gps}`);
+    statusText.textContent = "Completed.";
+  } catch (error) {
+    console.error(error);
+    statusText.textContent = "Upload failed.";
+    log(`Error: ${error.message}`);
+    alert(`Upload scan failed. ${error.message}`);
+  }
+}
